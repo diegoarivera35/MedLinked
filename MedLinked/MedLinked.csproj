@@ -187,9 +187,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403181826173_InitialCreate.cs" />
+    <Compile Include="Migrations\202403181826173_InitialCreate.Designer.cs">
+      <DependentUpon>202403181826173_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403182025413_Patient_Model.cs" />
+    <Compile Include="Migrations\202403182025413_Patient_Model.Designer.cs">
+      <DependentUpon>202403182025413_Patient_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403182029249_Doctor_Model.cs" />
+    <Compile Include="Migrations\202403182029249_Doctor_Model.Designer.cs">
+      <DependentUpon>202403182029249_Doctor_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403182033402_MedicalProcedure_Model.cs" />
+    <Compile Include="Migrations\202403182033402_MedicalProcedure_Model.Designer.cs">
+      <DependentUpon>202403182033402_MedicalProcedure_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MedicalProcedure.cs" />
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -294,6 +314,20 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202403181826173_InitialCreate.resx">
+      <DependentUpon>202403181826173_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403182025413_Patient_Model.resx">
+      <DependentUpon>202403182025413_Patient_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403182029249_Doctor_Model.resx">
+      <DependentUpon>202403182029249_Doctor_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403182033402_MedicalProcedure_Model.resx">
+      <DependentUpon>202403182033402_MedicalProcedure_Model.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
