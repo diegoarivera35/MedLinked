@@ -29,6 +29,10 @@ namespace MedLinked.Models
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<MedicalProcedure> MedicalProcedures { get; set; }
 
+        public DbSet<Accommodation> Accommodations { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
+
 
         public static ApplicationDbContext Create()
         {

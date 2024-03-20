@@ -16,8 +16,10 @@ namespace MedLinked.Models
 
         public string MedicalCenter { get; set; }
 
+        // The date when the procedure is taking place
         public DateTime MedicalProcedureDate { get; set; }
 
+        // The cost for the procedure
         public float MedicalProcedureCost { get; set; }
 
 

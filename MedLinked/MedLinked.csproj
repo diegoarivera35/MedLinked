@@ -203,9 +203,18 @@
     <Compile Include="Migrations\202403182033402_MedicalProcedure_Model.Designer.cs">
       <DependentUpon>202403182033402_MedicalProcedure_Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403202103526_Accommodation_Model.cs" />
+    <Compile Include="Migrations\202403202103526_Accommodation_Model.designer.cs">
+      <DependentUpon>202403202103526_Accommodation_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403202137446_Booking_Model.cs" />
+    <Compile Include="Migrations\202403202137446_Booking_Model.designer.cs">
+      <DependentUpon>202403202137446_Booking_Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -328,6 +337,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403182033402_MedicalProcedure_Model.resx">
       <DependentUpon>202403182033402_MedicalProcedure_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403202103526_Accommodation_Model.resx">
+      <DependentUpon>202403202103526_Accommodation_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403202137446_Booking_Model.resx">
+      <DependentUpon>202403202137446_Booking_Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
