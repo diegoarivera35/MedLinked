@@ -114,7 +114,7 @@ namespace MedLinked.Models
         // The name of the accommodation
         public string AccommodationName { get; set; }
 
-        // The departure date
+        // The departure date from Accommodation
         public DateTime Departure { get; set; }
 
         // The total after tax and VAT

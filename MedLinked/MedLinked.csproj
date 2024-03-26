@@ -184,6 +184,8 @@
     <Compile Include="Controllers\AccommodationController.cs" />
     <Compile Include="Controllers\AccommodationDataController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\BookingDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
@@ -300,10 +302,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Patient\List.cshtml" />
     <Content Include="Views\Accommodation\List.cshtml" />
+    <Content Include="Views\Booking\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AccommodationData\" />
+    <Folder Include="Views\BookingData\" />
     <Folder Include="Views\PatientData\" />
   </ItemGroup>
   <ItemGroup>

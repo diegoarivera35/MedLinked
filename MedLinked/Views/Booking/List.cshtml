@@ -1,0 +1,53 @@
+﻿﻿﻿@model IEnumerable<MedLinked.Models.BookingDto>
+@{
+    ViewBag.Title = "List";
+}
+<div class="title">
+    <h2>Bookings List</h2>
+    <a class="btn btn-primary" href="/Booking/New">+ New Booking</a>
+
+</div>
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">Booking ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Medical Procedure</th>
+            <th scope="col">Procedure Date</th>
+            <th scope="col">Accommodation Name</th>
+            <th scope="col">Departure</th>
+            <th scope="col">Grand Total</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+
+
+        @foreach (var Booking in Model)
+        {
+
+            <tr>
+                <th scope="row">@Booking.BookingID</th>
+                <td>@Booking.Status</td>
+                <td>@Booking.BookingDate</td>
+                <td>@Booking.PatientFirstName @Booking.PatientLastName</td>
+                <td>@Booking.DoctorFirstName @Booking.DoctorLastName</td>
+                <td>@Booking.MedicalProcedureName</td>
+                <td>@Booking.MedicalProcedureDate</td>
+                <td>@Booking.AccommodationName</td>
+                <td>@Booking.Departure</td>
+                <td>@Booking.GrandTotal</td>
+                <td><a class="btn btn-primary" href="/Booking/Details/@Booking.BookingID">details ></a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
