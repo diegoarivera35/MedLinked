@@ -1,0 +1,46 @@
+﻿﻿﻿@model IEnumerable<MedLinked.Models.AccommodationDto>
+@{
+    ViewBag.Title = "List";
+}
+<div class="title">
+    <h2>Accommodations List</h2>
+    <a class="btn btn-primary" href="/Accommodation/New">+ New Accommodation</a>
+
+</div>
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">Accommodation ID</th>
+            <th scope="col">Accommodation Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Departure</th>
+            <th scope="col">Arrival</th>
+            <th scope="col">Accommodation Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+
+
+        @foreach (var Accommodation in Model)
+        {
+
+            <tr>
+                <th scope="row">@Accommodation.AccommodationID</th>
+                <td>@Accommodation.AccommodationName</td>
+                <td>@Accommodation.Address</td>
+                <td>@Accommodation.Destination</td>
+                <td>@Accommodation.Departure</td>
+                <td>@Accommodation.Arrival</td>
+                <td>@Accommodation.AccommodationCost</td>
+                <td><a class="btn btn-primary" href="/Accommodation/Details/@Accommodation.AccommodationID">details ></a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

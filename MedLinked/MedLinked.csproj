@@ -181,6 +181,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccommodationController.cs" />
+    <Compile Include="Controllers\AccommodationDataController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\DoctorDataController.cs" />
@@ -301,11 +303,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Patient\List.cshtml" />
+    <Content Include="Views\Accommodation\List.cshtml" />
     <Content Include="Views\Doctor\List.cshtml" />
     <Content Include="Views\MedicalProcedure\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AccommodationData\" />
     <Folder Include="Views\DoctorData\" />
     <Folder Include="Views\MedicalProcedureData\" />
     <Folder Include="Views\PatientData\" />
