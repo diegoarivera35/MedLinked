@@ -39,6 +39,8 @@ namespace MedLinked.Controllers
                 PatientID = k.PatientID,
                 PatientFirstName = k.PatientFirstName,
                 PatientLastName = k.PatientLastName,
+                PatientGender = k.PatientGender,
+                PatientDOB = k.PatientDOB,
                 PatientNationality = k.PatientNationality,
                 PatientPhone = k.PatientPhone,
                 PatientEmail = k.PatientEmail,
@@ -72,6 +74,8 @@ namespace MedLinked.Controllers
                 PatientID = Patient.PatientID,
                 PatientFirstName = Patient.PatientFirstName,
                 PatientLastName = Patient.PatientLastName,
+                PatientGender = Patient.PatientGender,
+                PatientDOB = Patient.PatientDOB,
                 PatientNationality = Patient.PatientNationality,
                 PatientPhone = Patient.PatientPhone,
                 PatientEmail = Patient.PatientEmail
