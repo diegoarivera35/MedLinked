@@ -22,7 +22,7 @@ namespace MedLinked.Controllers
         /// </summary>
         /// <returns>
         /// HEADER: 200 (OK)
-        /// CONTENT: all MedicalProcedures in the database, including their associated doctor.
+        /// CONTENT: all MedicalProcedures in the database, including their associated medicalprocedure.
         /// </returns>
         /// <example>
         /// GET: api/MedicalProcedureData/ListMedicalProcedures
@@ -160,6 +160,46 @@ namespace MedLinked.Controllers
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = MedicalProcedure.MedicalProcedureID }, MedicalProcedure);
+        }
+
+
+
+
+        /// <summary>
+        /// A function to delete a specific medicalprocedure from the database using the id.
+        /// It uses the MedicalProcedure model class to delete the data.
+        /// </summary>
+        /// 
+        /// <example>
+        /// POST: curl -d "" https://localhost:44375/api/DataData/DeleteMedicalProcedure/6
+        /// 
+        /// Here, "" is the post data and it being empty means no post data was passed.
+        /// </example>
+        /// 
+        /// <param name="id">The medicalprocedure id</param>
+        /// 
+        /// <returns>
+        /// The selected data entry with the id is deleted from the database.
+        /// </returns>
+        /// 
+
+        // POST: api/MedicalProcedureData/DeleteMedicalProcedure/6
+        [ResponseType(typeof(MedicalProcedure))]
+        [HttpPost]
+        public IHttpActionResult DeleteMedicalProcedure(int id)
+        {
+            MedicalProcedure medicalprocedure = db.MedicalProcedures.Find(id);
+            if (medicalprocedure == null)
+            {
+                return NotFound();
+            }
+
+            db.MedicalProcedures.Remove(medicalprocedure);
+            db.SaveChanges();
+
+            // Not returning anything in the OK()
+            // Passing the object showed "null" values
+            return Ok();
         }
 
 

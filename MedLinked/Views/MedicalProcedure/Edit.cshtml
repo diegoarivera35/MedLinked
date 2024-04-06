@@ -1,0 +1,35 @@
+﻿﻿﻿@model MedLinked.Models.MedicalProcedureDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Medical Procedure Details</h2>
+
+<!--Link to to back to the medical procedure list page-->
+<a class="btn btn-danger my-3" href="/MedicalProcedure/List">Go back to MedicalProcedures</a>
+
+<!--Form to create a new medical procedure-->
+<form method="POST" action="/MedicalProcedure/Update/@Model.MedicalProcedureID">
+    <input type="text" style="display:none;" name="MedicalProcedureID" value="@Model.MedicalProcedureID" />
+
+    <div class="form-group pb-2">
+        <label>Medical Procedure:</label>
+        <input type="text" name="MedicalProcedureName" class="form-control" id="MedicalProcedureName" placeholder="Enter the Medical Procedure" value="@Model.MedicalProcedureName" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Medical Center:</label>
+        <input type="text" name="MedicalCenter" class="form-control" id="MedicalProcedureDOB" placeholder="Enter the Medical Center" value="@Model.MedicalCenter" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Date:</label>
+        <input type="datetime" name="MedicalProcedureDate" class="form-control" id="MedicalProcedureDate" placeholder="Enter the Date" value="@Model.MedicalProcedureDate" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Cost:</label>
+        <input type="number" name="MedicalProcedureCost" class="form-control" id="MedicalProcedureCost" placeholder="Enter the nationality" value="@Model.MedicalProcedureCost" />
+    </div>
+    <div>
+        <input type="submit" value="Update MedicalProcedure" />
+    </div>
+</form>

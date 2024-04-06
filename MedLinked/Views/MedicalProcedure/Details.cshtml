@@ -1,0 +1,52 @@
+﻿﻿﻿@model MedLinked.Models.ViewModels.DetailsMedicalProcedure
+
+
+@{
+    ViewBag.Title = "View";
+}
+
+<a class="btn btn-primary" href="/MedicalProcedure/List">< Go back to list</a>
+<br/>
+
+
+
+
+
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">MedicalProcedure ID</th>
+            <th scope="col">Medical Procedure</th>
+            <th scope="col">Medical Center</th>
+            <th scope="col">Date</th>
+            <th scope="col">Cost</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Model.SelectedMedicalProcedure.MedicalProcedureID</th>
+            <td>@Model.SelectedMedicalProcedure.MedicalProcedureName</td>
+            <td>@Model.SelectedMedicalProcedure.MedicalCenter</td>
+            <td>@Model.SelectedMedicalProcedure.MedicalProcedureDate</td>
+            <td>@Model.SelectedMedicalProcedure.MedicalProcedureCost</td>
+            <td><a class="btn btn-warning" href="/MedicalProcedure/Edit/@Model.SelectedMedicalProcedure.MedicalProcedureID">Update</a></td>
+            <td><a class="btn btn-danger" style="color:#ab2020;" href="/MedicalProcedure/DeleteConfirm/@Model.SelectedMedicalProcedure.MedicalProcedureID">- Delete</a></td>
+        </tr>
+
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
