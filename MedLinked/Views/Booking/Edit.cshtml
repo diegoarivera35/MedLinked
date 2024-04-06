@@ -1,0 +1,32 @@
+﻿﻿﻿@model MedLinked.Models.BookingDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Booking Details</h2>
+
+<!--Link to to back to the patients list page-->
+<a class="btn btn-danger my-3" href="/Booking/List">Go back to Bookings</a>
+
+<!--Form to create a new patient-->
+<form method="POST" action="/Booking/Update/@Model.BookingID">
+    <input type="text" style="display:none;" name="BookingID" value="@Model.BookingID" />
+
+    <div class="form-group pb-2">
+        <label>Status:</label>
+        <input type="text" name="Status" class="form-control" id="Status" placeholder="Enter Status" value="@Model.Status" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Date:</label>
+        <input type="datetime" name="BookingDate" class="form-control" id="BookingDate" placeholder="Enter the Date" value="@Model.BookingDate" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Grand Total:</label>
+        <input type="number" name="GrandTotal" class="form-control" id="GrandTotal" placeholder="Enter the Grand Total" value="@Model.GrandTotal" />
+    </div>
+
+    <div>
+        <input type="submit" value="Update Booking" />
+    </div>
+</form>
