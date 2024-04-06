@@ -84,6 +84,7 @@ namespace MedLinked.Controllers
 
             // import the view modal for patient list
             // Here, we are using the object for the view model
+            // GET api/PatientData/ListPatients
             DetailsBooking CreateBookingViewModel = new DetailsBooking();
 
             IEnumerable<PatientDto> PatientsOptions = response.Content.ReadAsAsync<IEnumerable<PatientDto>>().Result;
@@ -91,8 +92,27 @@ namespace MedLinked.Controllers
             // The Patients object is taken from the DetailsBooking view model
             CreateBookingViewModel.Patients = PatientsOptions;
 
-            // GET api/PackagesData/ListPackages
-            url = "DoctorsData/ListDoctors";
+
+            // GET api/AccommodationData/ListAccommodations
+            url = "AccommodationData/ListAccommodations";
+            response = client.GetAsync(url).Result;
+            IEnumerable<AccommodationDto> AccommodationsOptions = response.Content.ReadAsAsync<IEnumerable<AccommodationDto>>().Result;
+
+            // The Accommodations object is taken from the DetailsBooking view model
+            CreateBookingViewModel.Accommodations = AccommodationsOptions;
+
+
+            // GET api/MedicalProcedureData/ListMedicalProcedures
+            url = "MedicalProcedureData/ListMedicalProcedures";
+            response = client.GetAsync(url).Result;
+            IEnumerable<MedicalProcedureDto> MedicalProceduresOptions = response.Content.ReadAsAsync<IEnumerable<MedicalProcedureDto>>().Result;
+
+            // The MedicalProcedures object is taken from the DetailsBooking view model
+            CreateBookingViewModel.MedicalProcedures = MedicalProceduresOptions;
+
+
+            // GET api/DoctorsData/ListDoctors
+            url = "DoctorData/ListDoctors";
             response = client.GetAsync(url).Result;
             IEnumerable<DoctorDto> DoctorsOptions = response.Content.ReadAsAsync<IEnumerable<DoctorDto>>().Result;
 

@@ -13,7 +13,7 @@
     </div>
     <div>
         <label>Date:</label>
-        <input type="datetime" name="BookingDate" />
+        <input type="date" name="BookingDate" />
     </div>
 
     <!--For now, we need to add a new data entry in both the tables that have no association with the booking entity and then can provide
@@ -25,6 +25,28 @@
             @foreach (var patient in Model.Patients)
             {
                 <option value="@patient.PatientID">@patient.PatientFirstName @patient.PatientLastName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group pb-2">
+        <label for="AccommodationID">Accommodations:</label>
+        <select name="AccommodationID" id="AccommodationID">
+            <!-- The Accommodations is from the DetailsBooking VM -->
+            @foreach (var accommodation in Model.Accommodations)
+            {
+                <option value="@accommodation.AccommodationID">@accommodation.AccommodationName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group pb-2">
+        <label for="MedicalProcedureID">Medical Procedures:</label>
+        <select name="MedicalProcedureID" id="MedicalProcedureID">
+            <!-- The MedicalProcedures is from the DetailsBooking VM -->
+            @foreach (var medicalProcedure in Model.MedicalProcedures)
+            {
+                <option value="@medicalProcedure.MedicalProcedureID">@medicalProcedure.MedicalProcedureName</option>
             }
         </select>
     </div>
