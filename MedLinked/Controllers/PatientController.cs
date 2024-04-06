@@ -46,7 +46,10 @@ namespace MedLinked.Controllers
         }
 
 
-
+        public ActionResult Test()
+        {
+            return View();
+        }
 
 
 
