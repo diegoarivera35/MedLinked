@@ -1,7 +1,34 @@
-﻿
+﻿﻿﻿
+
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Create";
 }
 
-<h2>New</h2>
+<h2>Create Booking</h2>
+<form action="/Booking/Create" method="POST">
+    <div>
+        <label>Status:</label> <input type="text" name="Status" />
+    </div>
+    <div>
+        <label>Date:</label> <input type="datetime" name="BookingDate" />
+    </div>
+    <div>
+        <label>Grand Total:</label> <input type="number" name="GrandTotal" />
+    </div>
+    <div>
+        <label>Gender:</label> <input type="text" name="Patient" />
+    </div>
+    <div>
+        <label>Nationality:</label> <input type="text" name="BookingNationality" />
+    </div>
+    <div>
+        <label>Email:</label> <input type="text" name="BookingEmail" />
+    </div>
+    <div>
+        <label>Phone:</label> <input type="text" name="BookingPhone" />
+    </div>
+    <div>
+        <input type="submit" value="Create Booking" />
 
+    </div>
+</form>
