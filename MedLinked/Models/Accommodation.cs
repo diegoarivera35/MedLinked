@@ -31,20 +31,6 @@ namespace MedLinked.Models
 
         // The cost for the accommodation
         public float AccommodationCost { get; set; }
-
-
-        // Inverse relation - usually done for denoting a m-m relationship
-        // This is the (implicit way) of describing a bridging table
-        /* 
-         * In this way of creating a m-m relationship, there is no way of describing or adding columns
-         * to the bridging table and the table only has the PKs from the related tables
-         * 
-         * Used explicit way of defining a m-m relationship
-         */
-
-        // A package has many bookings
-
-        // public ICollection<Customer> Customers { get; set; }
     }
 
     /*

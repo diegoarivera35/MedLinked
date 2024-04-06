@@ -1,0 +1,43 @@
+﻿﻿﻿@model MedLinked.Models.AccommodationDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Accommodation Details</h2>
+
+<!--Link to to back to the accommodation list page-->
+<a class="btn btn-danger my-3" href="/Accommodation/List">Go back to Accommodations</a>
+
+<!--Form to create a new Accommodation-->
+<form method="POST" action="/Accommodation/Update/@Model.AccommodationID">
+    <input type="text" style="display:none;" name="AccommodationID" value="@Model.AccommodationID" />
+
+    <div class="form-group pb-2">
+        <label>Name:</label>
+        <input type="text" name="AccommodationName" class="form-control" id="AccommodationName" placeholder="Enter the name" value="@Model.AccommodationName" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Address:</label>
+        <input type="text" name="Address" class="form-control" id="Address" placeholder="Enter the address" value="@Model.Address" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Destination:</label>
+        <input type="text" name="Destination" class="form-control" id="Destination" placeholder="Enter the destination" value="@Model.Destination" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Departure:</label>
+        <input type="date" name="Departure" class="form-control" id="Departure" placeholder="Enter the departure date" value="@Model.Departure" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Arrival:</label>
+        <input type="date" name="Arrival" class="form-control" id="Arrival" placeholder="Enter the arrival date" value="@Model.Arrival" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Accommodation Cost:</label>
+        <input type="text" name="AccommodationCost" class="form-control" id="AccommodationCost" placeholder="Enter the cost" value="@Model.AccommodationCost" />
+    </div>
+    <div>
+        <input type="submit" value="Update Accommodation" />
+    </div>
+</form>

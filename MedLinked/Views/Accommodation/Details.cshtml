@@ -1,0 +1,52 @@
+﻿﻿﻿@model MedLinked.Models.ViewModels.DetailsAccommodation
+
+
+@{
+    ViewBag.Title = "View";
+}
+
+<a class="btn btn-primary" href="/Accommodation/List">< Go back to list</a>
+<br />
+
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">Accommodation ID</th>
+            <th scope="col">Accommodation Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Departure Date</th>
+            <th scope="col">Arrival Date</th>
+            <th scope="col">Accommodation Cost</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Model.SelectedAccommodation.AccommodationID</th>
+            <td>@Model.SelectedAccommodation.AccommodationName</td>
+            <td>@Model.SelectedAccommodation.Address</td>
+            <td>@Model.SelectedAccommodation.Destination</td>
+            <td>@Model.SelectedAccommodation.Departure</td>
+            <td>@Model.SelectedAccommodation.Arrival</td>
+            <td>@Model.SelectedAccommodation.AccommodationCost</td>
+            <td><a class="btn btn-warning" href="/Accommodation/Edit/@Model.SelectedAccommodation.AccommodationID">Update</a></td>
+            <td><a class="btn btn-danger" style="color:#ab2020;" href="/Accommodation/DeleteConfirm/@Model.SelectedAccommodation.AccommodationID">- Delete</a></td>
+        </tr>
+
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
