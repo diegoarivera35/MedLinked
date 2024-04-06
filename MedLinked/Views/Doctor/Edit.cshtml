@@ -1,0 +1,39 @@
+﻿﻿﻿@model MedLinked.Models.DoctorDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Doctor Details</h2>
+
+<!--Link to to back to the doctors list page-->
+<a class="btn btn-danger my-3" href="/Doctor/List">Go back to Doctors</a>
+
+<!--Form to create a new doctor-->
+<form method="POST" action="/Doctor/Update/@Model.DoctorID">
+    <input type="text" style="display:none;" name="DoctorID" value="@Model.DoctorID" />
+
+    <div class="form-group pb-2">
+        <label>First Name:</label>
+        <input type="text" name="DoctorFirstName" class="form-control" id="DoctorFirstName" placeholder="Enter the firstname" value="@Model.DoctorFirstName" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Last Name:</label>
+        <input type="text" name="DoctorLastName" class="form-control" id="DoctorLastName" placeholder="Enter the lastname" value="@Model.DoctorLastName" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Specialization:</label>
+        <input type="text" name="DoctorSpecialization" class="form-control" id="DoctorSpecialization" placeholder="Enter the Specialization" value="@Model.DoctorSpecialization" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Email:</label>
+        <input type="text" name="DoctorEmail" class="form-control" id="DoctorEmail" placeholder="Enter the email" value="@Model.DoctorEmail" />
+    </div>
+    <div class="form-group pb-2">
+        <label>Phone:</label>
+        <input type="text" name="DoctorPhone" class="form-control" id="DoctorPhone" placeholder="Enter the phone" value="@Model.DoctorPhone" />
+    </div>
+    <div>
+        <input type="submit" value="Update Doctor" />
+    </div>
+</form>

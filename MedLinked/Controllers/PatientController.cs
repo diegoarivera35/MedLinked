@@ -126,10 +126,117 @@ namespace MedLinked.Controllers
             {
                 return RedirectToAction("Error");
             }
-
-
         }
 
+        /// <summary>
+        /// A function that grabs the details of the selected patient and renders the edit form view
+        /// </summary>
+        /// <param name="id">The patient to be edited</param>
+        /// <returns>
+        /// Returns the edit booking form page with the patient data. 
+        /// </returns>
+        /// 
 
+        // GET: Patient/Edit/5
+        public ActionResult Edit(int id)
+        {
+            //grab the patient information
+
+            //objective: communicate with our patient data api to retrieve one patient
+            //curl https://localhost:44324/api/patientdata/findpatient/{id}
+
+            string url = "PatientData/FindPatient/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            PatientDto selectedPatient = response.Content.ReadAsAsync<PatientDto>().Result;
+
+            return View(selectedPatient);
+        }
+
+        /// <summary>
+        /// A function to update the details of the selected patient
+        /// </summary>
+        /// <param name="id">The patient id</param>
+        /// <param name="patient">The patient object</param>
+        /// <returns>
+        /// The list view page after updating the patient details
+        /// </returns>
+        /// 
+
+        // POST: Patient/Update/5
+        [HttpPost]
+        public ActionResult Update(int id, Patient patient)
+        {
+            try
+            {
+                // Serialize into JSON
+                // Send the request to the API
+
+                string url = "PatientData/UpdatePatient/" + id;
+
+
+                string jsonpayload = jss.Serialize(patient);
+                Debug.WriteLine(jsonpayload);
+
+                HttpContent content = new StringContent(jsonpayload);
+                content.Headers.ContentType.MediaType = "application/json";
+
+                //POST: api/PatientData/UpdatePatient/{id}
+                //Header : Content-Type: application/json
+                HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+                return RedirectToAction("Details/" + id);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        /// <summary>
+        /// Function to show the delete confirm dialog box.
+        /// </summary>
+        /// <param name="id">The patient id to be deleted</param>
+        /// <returns>
+        /// The delete confirm dialog box.
+        /// </returns>
+        /// 
+
+        // GET: Booking/DeleteConfirm/5
+        public ActionResult DeleteConfirm(int id)
+        {
+            string url = "PatientData/FindPatient/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            PatientDto selectedPatient = response.Content.ReadAsAsync<PatientDto>().Result;
+            return View(selectedPatient);
+        }
+
+        /// <summary>
+        /// Function to delete the selected patient entry.
+        /// </summary>
+        /// <param name="id">The patient id</param>
+        /// <returns>
+        /// The list of patients if successful else, the error view page.
+        /// </returns>
+
+        // POST: Patient/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            string url = "PatientData/DeletePatient/" + id;
+            HttpContent content = new StringContent("");
+            content.Headers.ContentType.MediaType = "application/json";
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
+
+        }
     }
 }

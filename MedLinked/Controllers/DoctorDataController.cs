@@ -166,6 +166,43 @@ namespace MedLinked.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Doctor.DoctorID }, Doctor);
         }
 
+        /// <summary>
+        /// A function to delete a specific doctor from the database using the id.
+        /// It uses the Doctor model class to delete the data.
+        /// </summary>
+        /// 
+        /// <example>
+        /// POST: curl -d "" https://localhost:44375/api/DataData/DeleteDoctor/6
+        /// 
+        /// Here, "" is the post data and it being empty means no post data was passed.
+        /// </example>
+        /// 
+        /// <param name="id">The doctor id</param>
+        /// 
+        /// <returns>
+        /// The selected data entry with the id is deleted from the database.
+        /// </returns>
+        /// 
+
+        // POST: api/DoctorData/DeleteDoctor/6
+        [ResponseType(typeof(Doctor))]
+        [HttpPost]
+        public IHttpActionResult DeleteDoctor(int id)
+        {
+            Doctor doctor = db.Doctors.Find(id);
+            if (doctor == null)
+            {
+                return NotFound();
+            }
+
+            db.Doctors.Remove(doctor);
+            db.SaveChanges();
+
+            // Not returning anything in the OK()
+            // Passing the object showed "null" values
+            return Ok();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
