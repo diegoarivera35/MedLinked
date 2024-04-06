@@ -187,7 +187,7 @@ namespace MedLinked.Controllers
         // POST: api/AccommodationData/DeleteAccommodation/2
         [ResponseType(typeof(Accommodation))]
         [HttpPost]
-        public IHttpActionResult DeletePatient(int id)
+        public IHttpActionResult DeleteAccommodation(int id)
         {
             Accommodation accommodation = db.Accommodations.Find(id);
             if (accommodation == null)
