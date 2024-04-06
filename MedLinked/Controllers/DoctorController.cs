@@ -31,16 +31,10 @@ namespace MedLinked.Controllers
             //curl https://localhost:44396/api/Doctordata/listdoctors
 
 
-            string url = "doctordata/listdoctors";
+            string url = "DoctorData/ListDoctors";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            //Debug.WriteLine("The response code is ");
-            //Debug.WriteLine(response.StatusCode);
-
             IEnumerable<DoctorDto> Doctors = response.Content.ReadAsAsync<IEnumerable<DoctorDto>>().Result;
-            //Debug.WriteLine("Number of Doctors received : ");
-            //Debug.WriteLine(Doctors.Count());
-
 
             return View(Doctors);
         }
@@ -53,7 +47,7 @@ namespace MedLinked.Controllers
             //objective: communicate with our Doctor data api to retrieve one Doctor
             //curl https://localhost:44376/api/Doctordata/finddoctor/{id}
 
-            string url = "doctordata/findDoctor/" + id;
+            string url = "DoctorData/FindDoctor/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -99,7 +93,7 @@ namespace MedLinked.Controllers
             //Debug.WriteLine(Doctor.DoctorName);
             //objective: add a new Doctor into our system using the API
             //curl -H "Content-Type:application/json" -d @Doctor.json https://localhost:44376/api/Doctordata/addDoctor 
-            string url = "doctordata/adddoctor";
+            string url = "DoctorData/AddDoctor";
 
 
             string jsonpayload = jss.Serialize(Doctor);
@@ -230,10 +224,5 @@ namespace MedLinked.Controllers
             }
 
         }
-
-
-
-
-
     }
 }

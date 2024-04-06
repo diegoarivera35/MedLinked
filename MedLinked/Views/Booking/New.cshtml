@@ -1,4 +1,5 @@
-﻿﻿﻿
+﻿﻿<!--Importing the view Model to fetch the list of other entities -->
+﻿@model MedLinked.Models.ViewModels.DetailsBooking
 
 @{
     ViewBag.Title = "Create";
@@ -7,26 +8,42 @@
 <h2>Create Booking</h2>
 <form action="/Booking/Create" method="POST">
     <div>
-        <label>Status:</label> <input type="text" name="Status" />
+        <label>Status:</label>
+        <input type="text" name="Status" />
     </div>
     <div>
-        <label>Date:</label> <input type="datetime" name="BookingDate" />
+        <label>Date:</label>
+        <input type="datetime" name="BookingDate" />
     </div>
+
+    <!--For now, we need to add a new data entry in both the tables that have no association with the booking entity and then can provide
+        the IDs in these input fields respecting the FK relationships.-->
+    <div class="form-group pb-2">
+        <label for="PatientID">Patients:</label>
+        <select name="PatientID" id="PatientID">
+            <!-- The Patients is from the DetailsBooking VM -->
+            @foreach (var patient in Model.Patients)
+            {
+                <option value="@patient.PatientID">@patient.PatientFirstName @patient.PatientLastName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group pb-2">
+        <label for="DoctorID">Doctors:</label>
+        <select name="DoctorID" id="DoctorID">
+            @foreach (var doctor in Model.Doctors)
+            {
+                <option value="@doctor.DoctorID">@doctor.DoctorFirstName @doctor.DoctorLastName</option>
+            }
+        </select>
+    </div>
+
     <div>
-        <label>Grand Total:</label> <input type="number" name="GrandTotal" />
+        <label>Grand Total:</label>
+        <input type="number" name="GrandTotal" />
     </div>
-    <div>
-        <label>Gender:</label> <input type="text" name="Patient" />
-    </div>
-    <div>
-        <label>Nationality:</label> <input type="text" name="BookingNationality" />
-    </div>
-    <div>
-        <label>Email:</label> <input type="text" name="BookingEmail" />
-    </div>
-    <div>
-        <label>Phone:</label> <input type="text" name="BookingPhone" />
-    </div>
+
     <div>
         <input type="submit" value="Create Booking" />
 
