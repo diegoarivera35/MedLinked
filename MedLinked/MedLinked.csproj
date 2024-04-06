@@ -230,6 +230,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MedicalProcedure.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\ViewModels\DetailsAccommodation.cs" />
     <Compile Include="Models\ViewModels\DetailsDoctor.cs" />
     <Compile Include="Models\ViewModels\DetailsPatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +320,10 @@
     <Content Include="Views\Doctor\Edit.cshtml" />
     <Content Include="Views\Doctor\Details.cshtml" />
     <Content Include="Views\Doctor\DeleteConfirm.cshtml" />
+    <Content Include="Views\Accommodation\Details.cshtml" />
+    <Content Include="Views\Accommodation\New.cshtml" />
+    <Content Include="Views\Accommodation\Edit.cshtml" />
+    <Content Include="Views\Accommodation\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

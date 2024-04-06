@@ -1,0 +1,28 @@
+﻿﻿﻿@{
+    ViewBag.Title = "Create Accommodation";
+}
+
+<h2>Create Accommodation</h2>
+<form action="/Accommodation/Create" method="POST">
+    <div>
+        <label>Name:</label> <input type="text" name="AccommodationName" />
+    </div>
+    <div>
+        <label>Address:</label> <input type="text" name="Address" />
+    </div>
+    <div>
+        <label>Destination:</label> <input type="text" name="Destination" />
+    </div>
+    <div>
+        <label>Departure Date:</label> <input type="datetime" name="Departure" />
+    </div>
+    <div>
+        <label>Arrival Date:</label> <input type="datetime" name="Arrival" />
+    </div>
+    <div>
+        <label>Accommodation Cost:</label> <input type="text" name="AccommodationCost" />
+    </div>
+    <div>
+        <input type="submit" value="Create Accommodation" />
+    </div>
+</form>

@@ -166,6 +166,43 @@ namespace MedLinked.Controllers
             return CreatedAtRoute("DefaultApi", new { id = Accommodation.AccommodationID }, Accommodation);
         }
 
+        /// <summary>
+        /// A function to delete a specific accommodation from the database using the id.
+        /// It uses the Accommodation model class to delete the data.
+        /// </summary>
+        /// 
+        /// <example>
+        /// POST: curl -d "" https://localhost:44375/api/AccommodationData/DeleteAccommodation/3
+        /// 
+        /// Here, "" is the post data and it being empty means no post data was passed.
+        /// </example>
+        /// 
+        /// <param name="id">The accommodation id</param>
+        /// 
+        /// <returns>
+        /// The selected data entry with the id is deleted from the database.
+        /// </returns>
+        /// 
+
+        // POST: api/AccommodationData/DeleteAccommodation/2
+        [ResponseType(typeof(Accommodation))]
+        [HttpPost]
+        public IHttpActionResult DeletePatient(int id)
+        {
+            Accommodation accommodation = db.Accommodations.Find(id);
+            if (accommodation == null)
+            {
+                return NotFound();
+            }
+
+            db.Accommodations.Remove(accommodation);
+            db.SaveChanges();
+
+            // Not returning anything in the OK()
+            // Passing the object showed "null" values
+            return Ok();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
