@@ -28,9 +28,38 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <!-- The footer logo -->
+            <div class="logo-left">
+                <p id="ftr_logo_text">MedLinked</p>
+            </div>
+
+            <!-- Copyright text -->
+            <div class="copyright-text">
+                <p id="ftr-copy-text">&copy; Copyright MedLinked. All Rights Reserved @DateTime.Now.Year.</p>
+            </div>
+
+            <!-- The footer contents -->
+            <div class="ftr-socials">
+                <ul id="ftr-socials-list">
+                    <li class="social-icon">
+                        <a href="#">
+                            <i class="ri-facebook-circle-fill"></i>
+                        </a>
+                    </li>
+                    <li class="social-icon">
+                        <a href="#">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </li>
+                    <li class="social-icon">
+                        <a href="#">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/934566fbc5.js" crossorigin="anonymous"></script>

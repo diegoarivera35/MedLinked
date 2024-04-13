@@ -1,43 +1,34 @@
 ﻿﻿﻿@model IEnumerable<MedLinked.Models.PatientDto>
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Patients";
 }
-<div class="title">
+
+
+<div class="title patients_list_title">
     <h2>Patients List</h2>
     <a class="btn btn-primary" href="/Patient/New">+ New Patient</a>
-
 </div>
 
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">Patient ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-
-
-
-
-
-        @foreach (var Patient in Model)
-        {
-
-            <tr>
-                <th scope="row">@Patient.PatientID</th>
-                <td>@Patient.PatientFirstName</td>
-                <td>@Patient.PatientLastName</td>
-                <td>@Patient.PatientPhone</td>
-                <td>@Patient.PatientEmail</td>
-                <td><a class="btn btn-primary" href="/Patient/Details/@Patient.PatientID">details ></a></td>
-            </tr>
-
-        }
-
-    </tbody>
-</table>
+<div class="container patient_list_container">
+    <!--For each customers in our model-->
+    @foreach (var Patient in Model)
+    {
+        <!-- Bootstrap card for each customer -->
+        <div class="card mb-3 patient_list_card hover-effect">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <!-- Heading with a link to the customer details page -->
+                        <h4 class="card-title"><a class="btn btn-primary" href="/Patient/Details/@Patient.PatientID">@Patient.PatientFirstName @Patient.PatientLastName</a></h4>
+                        <!-- Customer's email -->
+                        <p class="card-text pb-2">Email: @Patient.PatientEmail</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- Image (add your image here) -->
+                        <img src="~/Content/images/medlinked_pp.jpg" alt="Patient Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
