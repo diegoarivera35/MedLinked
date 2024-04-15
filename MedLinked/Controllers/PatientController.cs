@@ -73,12 +73,13 @@ namespace MedLinked.Controllers
 
             ViewModel.SelectedPatient = SelectedPatient;
 
-            //show all medicalprocedures under the care of this patient
-            url = "medicalproceduredata/listmedicalproceduresforpatient/" + id;
+            //show associated bookings with this patient
+            url = "BookingData/ListBookingsForPatients/" + id;
             response = client.GetAsync(url).Result;
-            //IEnumerable<MedicalProcedureDto> KeptMedicalProcedures = response.Content.ReadAsAsync<IEnumerable<MedicalProcedureDto>>().Result;
+            IEnumerable<BookingDto> RelatedBookings = response.Content.ReadAsAsync<IEnumerable<BookingDto>>().Result;
 
-            //ViewModel.KeptMedicalProcedures = KeptMedicalProcedures;
+            // defining the viewModel class property
+            ViewModel.RelatedBookings = RelatedBookings;
 
 
             return View(ViewModel);

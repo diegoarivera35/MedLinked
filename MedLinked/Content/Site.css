@@ -189,3 +189,22 @@ footer .ftr-socials ul {
         padding: 10px;
     }
 }
+
+/* The Patient Details Page */
+.cust_details .bkng_details #customers_total_bkng {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+    .cust_details .bkng_details #customers_total_bkng #total_p {
+        width: 100%;
+        background-color: rgb(234, 232, 243);
+        color: red;
+        border-radius: 8px;
+    }
+
+    .cust_details .bkng_details #customers_total_bkng p, ul {
+        width: 100%;
+    }

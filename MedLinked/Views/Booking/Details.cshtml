@@ -15,10 +15,10 @@
             <th scope="col">Status</th>
             <th scope="col">BookingDate</th>
             <th scope="col">GrandTotal</th>
-            <th scope="col">Patient ID</th>
-            <th scope="col">Doctor ID</th>
-            <th scope="col">Medical Procedure ID</th>
-            <th scope="col">Accommodation ID</th>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Medical Procedure</th>
+            <th scope="col">Accommodation</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -29,16 +29,13 @@
             <td>@Model.SelectedBooking.Status</td>
             <td>@Model.SelectedBooking.BookingDate</td>
             <td>@Model.SelectedBooking.GrandTotal</td>
-            <td>@Model.SelectedBooking.PatientID</td>
-            <td>@Model.SelectedBooking.DoctorID</td>
-            <td>@Model.SelectedBooking.MedicalProcedureID</td>
-            <td>@Model.SelectedBooking.AccommodationID</td>
+            <td>@Model.SelectedBooking.PatientFirstName @Model.SelectedBooking.PatientLastName</td>
+            <td>@Model.SelectedBooking.DoctorFirstName @Model.SelectedBooking.DoctorLastName</td>
+            <td>@Model.SelectedBooking.MedicalProcedureName</td>
+            <td>@Model.SelectedBooking.AccommodationName</td>
             <td><a class="btn btn-warning" href="/Booking/Edit/@Model.SelectedBooking.BookingID">Update</a></td>
             <td><a class="btn btn-danger" style="color:#ab2020;" href="/Booking/DeleteConfirm/@Model.SelectedBooking.BookingID">- Delete</a></td>
         </tr>
-
-
-
     </tbody>
 </table>
 
