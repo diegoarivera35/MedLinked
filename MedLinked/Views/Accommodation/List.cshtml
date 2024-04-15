@@ -8,39 +8,28 @@
 
 </div>
 
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">Accommodation ID</th>
-            <th scope="col">Accommodation Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Departure</th>
-            <th scope="col">Arrival</th>
-            <th scope="col">Accommodation Cost</th>
-        </tr>
-    </thead>
-    <tbody>
-
-
-
-
-
-        @foreach (var Accommodation in Model)
-        {
-
-            <tr>
-                <th scope="row">@Accommodation.AccommodationID</th>
-                <td>@Accommodation.AccommodationName</td>
-                <td>@Accommodation.Address</td>
-                <td>@Accommodation.Destination</td>
-                <td>@Accommodation.Departure</td>
-                <td>@Accommodation.Arrival</td>
-                <td>@Accommodation.AccommodationCost</td>
-                <td><a class="btn btn-primary" href="/Accommodation/Details/@Accommodation.AccommodationID">details ></a></td>
-            </tr>
-
-        }
-
-    </tbody>
-</table>
+<div class="container patient_list_container">
+    <!--For each customers in our model-->
+    @foreach (var Accommodation in Model)
+    {
+        <!-- Bootstrap card for each customer -->
+        <div class="card mb-3 list_card hover-effect">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <!-- Heading with a link to the customer details page -->
+                        <h3 class="card-title fs-4 text-uppercase mb-3 font-weight-bold">@Accommodation.AccommodationName</h3>
+                        <!-- Customer's email -->
+                        <p class="card-text lh-1"><strong>Address:</strong> @Accommodation.Address</p>
+                        <p class="card-text lh-1"><strong>Arrival Date:</strong> @Accommodation.Arrival</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- Image (add your image here) -->
+                        <img src="~/Content/images/medlinked_pp.jpg" alt="Patient Image" class="img-fluid rounded">
+                        <a class="btn btn-primary mt-2 d-flex justify-content-between align-content-center" href="/Accommodation/Details/@Accommodation.AccommodationID">details <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

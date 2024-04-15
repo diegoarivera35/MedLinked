@@ -1,48 +1,53 @@
-﻿﻿﻿@model IEnumerable<MedLinked.Models.BookingDto>
+﻿@model IEnumerable<MedLinked.Models.BookingDto>
 @{
     ViewBag.Title = "List";
 }
 <div class="title">
     <h2>Bookings List</h2>
     <a class="btn btn-primary" href="/Booking/New">+ New Booking</a>
-
 </div>
 
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">Booking ID</th>
-            <th scope="col">Status</th>
-            <th scope="col">Booking Date</th>
-            <th scope="col">Patient Name</th>
-            <th scope="col">Doctor Name</th>
-            <th scope="col">Medical Procedure</th>
-            <th scope="col">Procedure Date</th>
-            <th scope="col">Accommodation Name</th>
-            <th scope="col">Departure</th>
-            <th scope="col">Grand Total</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container patient_list_container">
+    <!--For each bookings in our model-->
+    @foreach (var booking in Model)
+    {
+        <!-- Bootstrap card for each booking -->
+        <div class="card mb-3 list_card hover-effect">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <!-- Heading with a link to the booking details page -->
+                        <h3 class="card-title fs-4 text-uppercase mb-3 font-weight-bold">
+                            <strong>Status:</strong>
+                            
+                            @if (booking.Status == "paid")
+                            {
+                                <span style="color:green;">@booking.Status</span>
+                            }
+                            else if (booking.Status == "unpaid")
+                            {
+                                <span style="color:red;">@booking.Status</span>
+                            }
+                            else
+                            {
+                                @booking.Status
+                            }
 
-        @foreach (var Booking in Model)
-        {
-
-            <tr>
-                <th scope="row">@Booking.BookingID</th>
-                <td>@Booking.Status</td>
-                <td>@Booking.BookingDate</td>
-                <td>@Booking.PatientFirstName @Booking.PatientLastName</td>
-                <td>@Booking.DoctorFirstName @Booking.DoctorLastName</td>
-                <td>@Booking.MedicalProcedureName</td>
-                <td>@Booking.MedicalProcedureDate</td>
-                <td>@Booking.AccommodationName</td>
-                <td>@Booking.Departure</td>
-                <td>@Booking.GrandTotal</td>
-                <td><a class="btn btn-primary" href="/Booking/Details/@Booking.BookingID">details ></a></td>
-            </tr>
-        }
-
-    </tbody>
-</table>
+                        </h3>
+                        <!-- Booking status -->
+                        <p class="card-text lh-1">
+                            <strong>Booking ID:</strong>
+                            @booking.BookingID
+                        </p>
+                        <!-- Booking date -->
+                        <p class="card-text lh-1"><strong>Date:</strong> @booking.BookingDate</p>
+                    </div>
+                    <div class="col-sm-4 d-flex justify-content-end flex-column">
+                        <!-- Link to booking details page -->
+                        <a class="btn btn-primary mt-2 d-flex justify-content-between align-content-center" href="/Booking/Details/@booking.BookingID">details <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

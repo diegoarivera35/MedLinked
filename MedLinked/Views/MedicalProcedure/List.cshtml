@@ -8,36 +8,31 @@
 
 </div>
 
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">MedicalProcedure ID</th>
-            <th scope="col">MedicalProcedureName</th>
-            <th scope="col">MedicalCenter</th>
-            <th scope="col">MedicalProcedureDate</th>
-            <th scope="col">MedicalProcedureCost</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container patient_list_container">
+    <!--For each customers in our model-->
+    @foreach (var MedicalProcedure in Model)
+    {
+        <!-- Bootstrap card for each customer -->
+        <div class="card mb-3 list_card hover-effect">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <!-- Heading with a link to the customer details page -->
+                        <h3 class="card-title fs-4 text-uppercase mb-3 font-weight-bold">@MedicalProcedure.MedicalProcedureName </h3>
+                        <!-- Customer's email -->
+                        <p class="card-text lh-1"><strong>Date:</strong> @MedicalProcedure.MedicalProcedureDate</p>
+                        <p class="card-text lh-1"><strong>Location:</strong> @MedicalProcedure.MedicalCenter</p>
+                        @*
+                            <p class="card-text lh-1"><strong>Specialization:</strong> @Doctor.DoctorSpecialization</p>*@
 
-
-
-
-
-        @foreach (var MedicalProcedure in Model)
-        {
-
-            <tr>
-                <th scope="row">@MedicalProcedure.MedicalProcedureID</th>
-                <td>@MedicalProcedure.MedicalProcedureName</td>
-                <td>@MedicalProcedure.MedicalCenter</td>
-                <td>@MedicalProcedure.MedicalProcedureDate</td>
-                <td>@MedicalProcedure.MedicalProcedureCost</td>
-                <td><a class="btn btn-primary" href="/MedicalProcedure/Details/@MedicalProcedure.MedicalProcedureID">details ></a></td>
-            </tr>
-
-        }
-
-    </tbody>
-</table>
+                    </div>
+                    <div class="col-sm-4 d-flex justify-content-end flex-column">
+                     
+                        
+                        <a class="btn btn-primary mt-2 d-flex justify-content-between align-content-center" href="/MedicalProcedure/Details/@MedicalProcedure.MedicalProcedureID">details <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -4,7 +4,7 @@
 }
 
 
-<div class="title patients_list_title">
+<div class="title list_title">
     <h2>Patients List</h2>
     <a class="btn btn-primary" href="/Patient/New">+ New Patient</a>
 </div>
@@ -14,18 +14,20 @@
     @foreach (var Patient in Model)
     {
         <!-- Bootstrap card for each customer -->
-        <div class="card mb-3 patient_list_card hover-effect">
+        <div class="card mb-3 list_card hover-effect">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-8">
                         <!-- Heading with a link to the customer details page -->
-                        <h4 class="card-title"><a class="btn btn-primary" href="/Patient/Details/@Patient.PatientID">@Patient.PatientFirstName @Patient.PatientLastName</a></h4>
+                        <h3 class="card-title fs-4 text-uppercase mb-3 font-weight-bold">@Patient.PatientFirstName @Patient.PatientLastName</h3>
                         <!-- Customer's email -->
-                        <p class="card-text pb-2">Email: @Patient.PatientEmail</p>
+                        <p class="card-text lh-1"><strong>Email:</strong> @Patient.PatientEmail</p>
+                        <p class="card-text lh-1"><strong>Phone:</strong> @Patient.PatientPhone</p>
                     </div>
                     <div class="col-sm-4">
                         <!-- Image (add your image here) -->
-                        <img src="~/Content/images/medlinked_pp.jpg" alt="Patient Image" class="img-fluid">
+                        <img src="~/Content/images/medlinked_pp.jpg" alt="Patient Image" class="img-fluid rounded">
+                        <a class="btn btn-primary mt-2 d-flex justify-content-between align-content-center" href="/Patient/Details/@Patient.PatientID">details <i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>

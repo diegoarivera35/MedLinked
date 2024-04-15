@@ -4,6 +4,10 @@
     background: #E0E0E0;
 }
 
+.body-content {
+    min-height: 100vh !important;
+}
+
 .dashboardCard {
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
@@ -51,7 +55,7 @@
 
 
 /* Style for the Patients list page */
-.patient_list_container {
+.list_container {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -60,18 +64,18 @@
     gap: 20px;
 }
 
-.patients_list_title {
+.list_title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.patient_list_card {
+.list_card {
     width: 500px;
     margin: 10px;
 }
 
-    .patient_list_card img {
+    .list_card img {
         width: 200px;
         height: auto;
     }
@@ -82,10 +86,11 @@
     transition: all 0.3s ease;
 }
 
-
-
-
-
+.fa-solid, .fas {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 /* Footer section */
 footer {
     background: #333;

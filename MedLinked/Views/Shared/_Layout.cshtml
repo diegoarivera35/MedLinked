@@ -29,39 +29,59 @@
     <div class="container body-content">
         @RenderBody()
 
-        <footer>
-            <!-- The footer logo -->
-            <div class="logo-left">
-                <p id="ftr_logo_text">MedLinked</p>
-            </div>
 
-            <!-- Copyright text -->
-            <div class="copyright-text">
-                <p id="ftr-copy-text">&copy; Copyright MedLinked. All Rights Reserved @DateTime.Now.Year.</p>
-            </div>
-
-            <!-- The footer contents -->
-            <div class="ftr-socials">
-                <ul id="ftr-socials-list">
-                    <li class="social-icon">
-                        <a href="#">
-                            <i class="ri-facebook-circle-fill"></i>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a href="#">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a href="#">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
     </div>
+    <!--<footer>-->
+    <!-- The footer logo -->
+    <!--<div class="logo-left">
+        <p id="ftr_logo_text">MedLinked</p>
+    </div>-->
+    <!-- Copyright text -->
+    <!--<div class="copyright-text">
+        <p id="ftr-copy-text">&copy; Copyright MedLinked. All Rights Reserved @DateTime.Now.Year.</p>
+    </div>-->
+    <!-- The footer contents -->
+    <!--<div class="ftr-socials">
+            <ul id="ftr-socials-list">
+                <li class="social-icon">
+                    <a href="#">
+                        <i class="ri-facebook-circle-fill"></i>
+                    </a>
+                </li>
+                <li class="social-icon">
+                    <a href="#">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
+                </li>
+                <li class="social-icon">
+                    <a href="#">
+                        <i class="ri-youtube-fill"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>-->
+
+
+
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Company, Inc</p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-center mr-3">
+            <li class="nav-item social-icon"><a href="#" class="nav-link px-2 text-body-secondary text-white text-decoration-none">Home</a></li>
+            <li class="nav-item social-icon"><a href="#" class="nav-link px-2 text-body-secondary text-white text-decoration-none">Features</a></li>
+            <li class="nav-item social-icon"><a href="#" class="nav-link px-2 text-body-secondary text-white text-decoration-none">Pricing</a></li>
+            <li class="nav-item social-icon"><a href="#" class="nav-link px-2 text-body-secondary text-white text-decoration-none">FAQs</a></li>
+            <li class="nav-item social-icon"><a href="#" class="nav-link px-2 text-body-secondary text-white text-decoration-none">About</a></li>
+        </ul>
+    </footer>
+
+
     <script src="https://kit.fontawesome.com/934566fbc5.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
