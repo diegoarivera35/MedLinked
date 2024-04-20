@@ -89,7 +89,7 @@ Follow these steps to install the project:
 - Worked on the CRUD for Accommodation and Medical Procedure
 - Created a form for creating new bookings with data from other entities too
 
-- ### Day 6: April 15
+### Day 6: April 15
 
 - Worked on the Related Bookings for Patients and other entities
 - Fixed the styling for most of the pages
