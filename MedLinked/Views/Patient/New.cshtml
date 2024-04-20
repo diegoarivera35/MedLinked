@@ -1,41 +1,56 @@
-﻿﻿﻿
-
-@{
+﻿@{
     ViewBag.Title = "Create";
 }
 
-<h2>Create Patient</h2>
-<form action="/Patient/Create" method="POST">
-    <div>
-        <label>First Name:</label>
-        <input type="text" name="PatientFirstName" />
-    </div>
-    <div>
-        <label>Last Name:</label>
-        <input type="text" name="PatientLastName" />
-    </div>
-    <div>
-        <label>Date of Birth:</label>
-        <input type="date" name="PatientDOB" />
-    </div>
-    <div>
-        <label>Gender:</label> 
-        <input type="text" name="PatientGender" />
-    </div>
-    <div>
-        <label>Nationality:</label> 
-        <input type="text" name="PatientNationality" />
-    </div>
-    <div>
-        <label>Email:</label> 
-        <input type="text" name="PatientEmail" />
-    </div>
-    <div>
-        <label>Phone:</label> 
-        <input type="text" name="PatientPhone" />
-    </div>
-    <div>
-        <input type="submit" value="Create Patient" />
+<h2>Create a Patient</h2>
 
+<!--Link to to back to the customers list page-->
+<a class="btn btn-danger my-3" href="/Patient/List">Go back to Patients list</a>
+
+<!--Form to create a new customer-->
+<form action="/Patient/Create" method="POST" id="patientForm" onsubmit="return validateForm()">
+    <div class="form-group pb-2">
+        <label for="PatientFirstName">Firstname:</label>
+        <input type="text" name="PatientFirstName" class="form-control" id="PatientFirstName" placeholder="Enter the firstname" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientLastName">Lastname:</label>
+        <input type="text" name="PatientLastName" class="form-control" id="PatientLastName" placeholder="Enter the lastname" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientDOB">Date of Birth:</label>
+        <input type="date" name="PatientDOB" class="form-control" id="PatientDOB" placeholder="Enter the date of birth" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientGender">Gender:</label>
+        <input type="text" name="PatientGender" class="form-control" id="PatientGender" placeholder="Enter the address" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientNationality">Nationality:</label>
+        <input type="text" name="PatientNationality" class="form-control" id="PatientNationality" placeholder="Enter the email" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientEmail">Email:</label>
+        <input type="email" name="PatientEmail" class="form-control" id="PatientEmail" placeholder="Enter the email" required />
+    </div>
+    <div class="form-group pb-2">
+        <label for="PatientPhone">Phone:</label>
+        <input type="number" name="PatientPhone" class="form-control" id="PatientPhone" placeholder="Enter the phone" required />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary mt-2" value="Add Patient" />
     </div>
 </form>
+
+<!--JS for client-side form validation-->
+<script>
+    function validateForm(event) {
+        var form = document.getElementById('patientForm');
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+        return form.checkValidity();
+    }
+</script>

@@ -47,6 +47,56 @@ namespace MedLinked.Controllers
             return Ok(MedicalProcedureDtos);
         }
 
+        /// <summary>
+        /// Retreives the medical procedures info for a particular doctor
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all procedures in the database, including their associated patient who made the booking
+        /// </returns>
+        /// <param name="id">The Doctor ID</param>
+        /// <example>
+        /// GET: api/MedicalProcedureData/listmedicalproceduresfordoctor/3
+        /// </example>
+        /// 
+        /// <steps>
+        ///     - First the api was created to list the information to be shared
+        ///     - The query is the line with Where: List<MedicalProcedure> Procedures = db.Procedures.Where(a => a.DoctorId == id).ToList();
+        ///     - Then, create the ViewModel and import the DTO classes
+        ///     - In the display view, use the new ViewModel object to access the data
+        /// </steps>
+        /// 
+        [HttpGet]
+        [ResponseType(typeof(BookingDto))]
+        public IHttpActionResult listmedicalproceduresfordoctor(int id)
+        {
+            //SQL Equivalent:
+            //Select * from bookings where bookings.PatientId = {id}
+            List<Booking> Bookings = db.Bookings.Where(c => c.PatientID == id).ToList();
+            List<BookingDto> BookingDtos = new List<BookingDto>();
+
+            Bookings.ForEach(c => BookingDtos.Add(new BookingDto()
+            {
+                BookingID = c.BookingID,
+                // using the entity relationship for these Patient entity columns
+                PatientFirstName = c.Patient.PatientFirstName,
+                PatientLastName = c.Patient.PatientLastName,
+                // using the entity relationship for these Doctor entity columns
+                DoctorFirstName = c.Doctor.DoctorFirstName,
+                DoctorLastName = c.Doctor.DoctorLastName,
+                // using the entity relationship for these MedicalProcedure entity columns
+                MedicalProcedureName = c.MedicalProcedure.MedicalProcedureName,
+                MedicalProcedureDate = c.MedicalProcedure.MedicalProcedureDate,
+                // using the entity relationship for these Accommodation entity columns
+                AccommodationName = c.Accommodation.AccommodationName,
+                Departure = c.Accommodation.Departure,
+                Status = c.Status,
+                GrandTotal = c.GrandTotal
+            }));
+
+            return Ok(BookingDtos);
+        }
+
 
         /// <summary>
         /// Returns all MedicalProcedures in the system.

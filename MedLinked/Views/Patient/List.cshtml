@@ -9,7 +9,7 @@
     <a class="btn btn-primary" href="/Patient/New">+ New Patient</a>
 </div>
 
-<div class="container patient_list_container">
+<div class="container d-grid grid-col-2 patient_list_container">
     <!--For each customers in our model-->
     @foreach (var Patient in Model)
     {
@@ -25,7 +25,7 @@
                         <p class="card-text lh-1"><strong>Phone:</strong> @Patient.PatientPhone</p>
                     </div>
                     <div class="col-sm-4">
-                        <!-- Image (add your image here) -->
+                        <!-- Image  -->
                         <img src="~/Content/images/medlinked_pp.jpg" alt="Patient Image" class="img-fluid rounded">
                         <a class="btn btn-primary mt-2 d-flex justify-content-between align-content-center" href="/Patient/Details/@Patient.PatientID">details <i class="fa-solid fa-chevron-right"></i></a>
                     </div>

@@ -1,51 +1,81 @@
-﻿﻿﻿@model MedLinked.Models.ViewModels.DetailsDoctor
-
+﻿<!--Defining the Doctor model-->﻿﻿
+@model MedLinked.Models.ViewModels.DetailsDoctor
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Doctor Details";
 }
 
-<a class="btn btn-primary" href="/Doctor/List">< Go back to list</a>
-<br />
+<h2>Doctor Details</h2>
 
+<!--Link to go back to the doctors list page-->
+<a class="btn btn-success my-3" href="/Doctor/List">Go back to Doctors list</a>
 
+<div class="container mt-2 mb-5 cust_details">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Content for the first column of the upper row -->
+            <div class="card w-100">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="card-title fw-bold">@Model.SelectedDoctor.DoctorFirstName @Model.SelectedDoctor.DoctorLastName</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p class="card-title fs-5"><span class="fw-bold">Specialization:</span> @Model.SelectedDoctor.DoctorSpecialization</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <!--Delete Doctor-->
+                                <a href="/Doctor/DeleteConfirm/@Model.SelectedDoctor.DoctorID" class="btn btn-danger me-2">Delete</a>
+                                <!--Update Doctor-->
+                                <a href="/Doctor/Edit/@Model.SelectedDoctor.DoctorID" class="btn btn-primary">Update</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text"><span class="fw-bold">Email:</span> @Model.SelectedDoctor.DoctorEmail</p>
+                    <p class="card-text"><span class="fw-bold">Phone:</span> @Model.SelectedDoctor.DoctorPhone</p>
+                </div>
+            </div>
 
+            <!-- Content for the single column of the right column -->
+            <div class="card w-100 mt-5 bg-light">
+                <div class="card-body">
+                    <div class="w-50 text-center mx-auto customers_total_bkng">
+                        @{
+                            // Calculate total number of bookings for the doctor
+                            int totalBookings = Model.KeptMedicalProcedures.Count();
+                        }
+                        <p class="fs-4 fw-bold text-bg-danger" id="total_p">Total bookings: @totalBookings</p>
+                        <p class="fs-6"><span class="fw-bold">@Model.SelectedDoctor.DoctorFirstName</span> has the following bookings:</p>
+                        <ul class="list-group">
+                            @if (Model.KeptMedicalProcedures.Any())
+                            {
+                                foreach (var procedure in Model.KeptMedicalProcedures)
+                                {
+                                    <li class="list-group-item"><a class="fs-5 text-decoration-none text-danger" href="/MedicalProcedure/Details/@procedure.MedicalProcedureID">@procedure.MedicalProcedureName</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="list-group-item text-danger">No bookings made for the doctor yet!</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-
-
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">Doctor ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Specialization</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">@Model.SelectedDoctor.DoctorID</th>
-            <td>@Model.SelectedDoctor.DoctorFirstName</td>
-            <td>@Model.SelectedDoctor.DoctorLastName</td>
-            <td>@Model.SelectedDoctor.DoctorSpecialization</td>
-            <td>@Model.SelectedDoctor.DoctorPhone</td>
-            <td>@Model.SelectedDoctor.DoctorEmail</td>
-            <td><a class="btn btn-warning" href="/Doctor/Edit/@Model.SelectedDoctor.DoctorID">Update</a></td>
-            <td><a class="btn btn-danger" style="color:#ab2020;" href="/Doctor/DeleteConfirm/@Model.SelectedDoctor.DoctorID">- Delete</a></td>
-        </tr>
-
-
-
-    </tbody>
-</table>
-
-
-
-
+        </div>
+        <div class="col-md-4">
+            <!-- Content for the second row of the left column -->
+            <div class="card w-100 mt-4 bg-light">
+                <div class="card-body">
+                    <!-- The profile picture section -->
+                    <img src="~/Content/images/medlinked_pp.jpg" class="img-fluid" alt="Profile Picture">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

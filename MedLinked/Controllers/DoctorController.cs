@@ -62,9 +62,9 @@ namespace MedLinked.Controllers
             //show all medicalprocedures under the care of this doctor
             url = "medicalproceduredata/listmedicalproceduresfordoctor/" + id;
             response = client.GetAsync(url).Result;
-            //IEnumerable<MedicalProcedureDto> KeptMedicalProcedures = response.Content.ReadAsAsync<IEnumerable<MedicalProcedureDto>>().Result;
+            IEnumerable<MedicalProcedureDto> KeptMedicalProcedures = response.Content.ReadAsAsync<IEnumerable<MedicalProcedureDto>>().Result;
 
-            //ViewModel.KeptMedicalProcedures = KeptMedicalProcedures;
+            ViewModel.KeptMedicalProcedures = KeptMedicalProcedures;
 
 
             return View(ViewModel);

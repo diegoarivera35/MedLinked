@@ -8,7 +8,8 @@ namespace MedLinked.Models.ViewModels
     public class DetailsDoctor
     {
         public DoctorDto SelectedDoctor { get; set; }
-        //public IEnumerable<MedicalProcedureDto> KeptMedicalProcedures { get; set; }
+        // To display the medical procedures under this doctor
+        public IEnumerable<MedicalProcedureDto> KeptMedicalProcedures { get; set; }
     }
 }
 
